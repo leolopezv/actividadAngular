@@ -1,18 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from './services/user.service';
-import { User } from './models/user';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { provideRouter, RouterOutlet, RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
 
+import { ContactoComponent } from './shared/contacto/contacto.component';
+import { InicioComponent } from './shared/inicio/inicio.component';
+import { NosotrosComponent } from './shared/nosotros/nosotros.component';
+import { ServiciosComponent } from './shared/servicios/servicios.component';
+import { MenuComponent } from './shared/menu/menu.component';
+import { LogoComponent } from './shared/logo/logo.component';
+import { FooterpageComponent } from './shared/footerpage/footerpage.component';
+import { User } from './models/user';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet,CommonModule, HttpClientModule], // El import es para importar una librearia o modulo
-  providers: [UserService], // El provider es para importar un servicio
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    RouterModule,
+    ContactoComponent,
+    HttpClientModule,
+    InicioComponent,
+    NosotrosComponent,
+    ServiciosComponent,
+    MenuComponent,
+    LogoComponent,
+    FooterpageComponent
+  ],
+  providers: [
+    UserService
+  ]
 })
 
 export class AppComponent {
